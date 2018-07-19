@@ -22,9 +22,7 @@ class Detail extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>
-                {this.state.book.title} : {this.state.book.author}
-              </h1>
+             <h1>NOTES!</h1>
             </Jumbotron>
           </Col>
         </Row>

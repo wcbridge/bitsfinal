@@ -71,7 +71,7 @@ class Books extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>Health Type?</h1>
+              <h1>How Should I Spend My Free Time?</h1>
             </Jumbotron>
             <form>
               <Input
@@ -96,13 +96,13 @@ class Books extends Component {
                 disabled={!(this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Concern
+                Submit
               </FormBtn>
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Concerns</h1>
+              <h1>Free Time Breakdown</h1>
             </Jumbotron>
             {this.state.books.length ? (
               <List>
