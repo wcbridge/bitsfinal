@@ -11,7 +11,7 @@ class Books extends Component {
   state = {
     books: [],
     title: "",
-    author: "",
+    selfA: "",
     esteem:"",
     love:"",
     synopsis: ""
@@ -24,7 +24,7 @@ class Books extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "",esteem: "", synopsis: "" })
+        this.setState({ books: res.data, title: "", selfA: "",esteem: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
@@ -52,11 +52,11 @@ class Books extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title)
-    // && this.state.author) 
+    // && this.state.selfA) 
     {
       API.saveBook({
         title: this.state.title,
-        author: this.state.title*.1,
+        selfA: this.state.title*.1,
 
         synopsis: this.state.synopsis
       })
@@ -81,9 +81,9 @@ class Books extends Component {
                 placeholder="time (required)"
               />
               {/* <Input
-                value={this.state.author}
+                value={this.state.selfA}
                 onChange={this.handleInputChange}
-                name="author"
+                name="selfA"
                 placeholder="Physical, Mental, Emotional...make a drop down (required)"
               /> */}
               <TextArea
@@ -114,7 +114,7 @@ class Books extends Component {
                         Free Time :         {book.title} hrs
                         </p>
                         <p>
-                        Self Actualization: {book.author} hrs
+                        Self Actualization: {book.selfA} hrs
                         </p>
                         <p>
                         Esteem:             {book.title*.3} hrs
