@@ -24,7 +24,7 @@ class Books extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, title: "", selfA: "",esteem: "", synopsis: "" })
+        this.setState({ books: res.data, title: "", selfA: "",esteem: "",love:"", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
@@ -57,6 +57,8 @@ class Books extends Component {
       API.saveBook({
         title: this.state.title,
         selfA: this.state.title*.1,
+        esteem: this.state.title*.3,
+        love: this.state.title*.6,
 
         synopsis: this.state.synopsis
       })
@@ -117,9 +119,9 @@ class Books extends Component {
                         Self Actualization: {book.selfA} hrs
                         </p>
                         <p>
-                        Esteem:             {book.title*.3} hrs
+                        Esteem:             {book.esteem} hrs
                         </p>
-                        Love:               {book.title*.6} hrs
+                        Love:               {book.love} hrs
                         
                      
                     </Link>
