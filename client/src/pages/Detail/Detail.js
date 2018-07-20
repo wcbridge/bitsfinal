@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import { Input, TextArea, FormBtn } from "../../components/Form";
 
 class Detail extends Component {
   state = {
@@ -15,7 +16,7 @@ class Detail extends Component {
       .then(res => this.setState({ book: res.data }))
       .catch(err => console.log(err));
   }
-
+ 
   render() {
     return (
       <Container fluid>
@@ -35,6 +36,18 @@ class Detail extends Component {
               </p>
             </article>
           </Col>
+          <TextArea
+            value={this.state.synopsis}
+            onChange={this.handleInputChange}
+            name="synopsis"
+            placeholder="Explain (Optional)"
+          />
+          <FormBtn
+           
+            onClick={this.handleFormSubmit}
+          >
+            Submit
+              </FormBtn>
         </Row>
         <Row>
           <Col size="md-2">
