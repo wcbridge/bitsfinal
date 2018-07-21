@@ -1,20 +1,20 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all hours
   getHours: function() {
-    return axios.get("/api/books");
+    return axios.get("/api/hours");
   },
-  // Gets the book with the given id
+  // Gets the hour with the given id
   getHour: function(id) {
-    return axios.get("/api/books/" + id);
+    return axios.get("/api/hours/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the hour with the given id
   deleteHour: function(id) {
-    return axios.delete("/api/books/" + id);
+    return axios.delete("/api/hours/" + id);
   },
-  // Saves a book to the database
-  saveHour: function(bookData) {
-    return axios.post("/api/books", bookData);
+  // Saves a hour to the database
+  saveHour: function(hourData) {
+    return axios.post("/api/hours", hourData);
   }
 };
