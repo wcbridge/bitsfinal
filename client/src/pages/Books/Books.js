@@ -82,12 +82,6 @@ class Books extends Component {
                 name="title"
                 placeholder="time (required)"
               />
-              {/* <Input
-                value={this.state.selfA}
-                onChange={this.handleInputChange}
-                name="selfA"
-                placeholder="Physical, Mental, Emotional...make a drop down (required)"
-              /> */}
               <TextArea
                 value={this.state.synopsis}
                 onChange={this.handleInputChange}
@@ -101,8 +95,7 @@ class Books extends Component {
                 Submit
               </FormBtn>
             </form>
-          </Col>
-          <Col size="md-6 sm-12">
+        
             <Jumbotron>
               <h1>Free Time Breakdown</h1>
             </Jumbotron>
