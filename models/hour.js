@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
-  title: { type: Number, required: true },
-  author: { type: Number, required: false},
+const scheduleSchema = new Schema({
+  free: { type: Number, required: true },
+  // author: { type: Number, required: false},
   selfA: { type: Number, required: false },
   esteem: { type: Number, required: false },
   love: { type: Number, required: false },
@@ -11,6 +11,6 @@ const bookSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-const Book = mongoose.model("Book", bookSchema);
+const Hour = mongoose.model("Hour", scheduleSchema);
 
-module.exports = Book;
+module.exports = Hour;

@@ -7,10 +7,10 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 
-class Books extends Component {
+class Hours extends Component {
   state = {
-    books: [],
-    title: "",
+    hours: [],
+    free: "",
     selfA: "",
     esteem:"",
     love:"",
@@ -18,20 +18,20 @@ class Books extends Component {
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadHours();
   }
 
-  loadBooks = () => {
-    API.getBooks()
+  loadHours = () => {
+    API.getHours()
       .then(res =>
-        this.setState({ books: res.data, title: "", selfA: "",esteem: "",love:"", synopsis: "" })
+        this.setState({ hours: res.data, free: "", selfA: "",esteem: "",love:"", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
+  deleteHour = id => {
+    API.deleteHour(id)
+      .then(res => this.loadHours())
       .catch(err => console.log(err));
   };
 
@@ -51,18 +51,18 @@ class Books extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title)
+    if (this.state.free)
     // && this.state.selfA) 
     {
-      API.saveBook({
-        title: this.state.title,
-        selfA: this.state.title*.1,
-        esteem: this.state.title*.3,
-        love: this.state.title*.6,
+      API.saveHour({
+        free: this.state.free,
+        selfA: this.state.free*.1,
+        esteem: this.state.free*.3,
+        love: this.state.free*.6,
 
         synopsis: this.state.synopsis
       })
-        .then(res => this.loadBooks())
+        .then(res => this.loadHours())
         .catch(err => console.log(err));
     }
   };
@@ -77,9 +77,9 @@ class Books extends Component {
             </Jumbotron>
             <form>
               <Input
-                value={this.state.title}
+                value={this.state.free}
                 onChange={this.handleInputChange}
-                name="title"
+                name="free"
                 placeholder="time (required)"
               />
               <TextArea
@@ -89,7 +89,7 @@ class Books extends Component {
                 placeholder="Explain (Optional)"
               />
               <FormBtn
-                disabled={!(this.state.title)}
+                disabled={!(this.state.free)}
                 onClick={this.handleFormSubmit}
               >
                 Submit
@@ -99,26 +99,26 @@ class Books extends Component {
             <Jumbotron>
               <h1>Free Time Breakdown</h1>
             </Jumbotron>
-            {this.state.books.length ? (
+            {this.state.hours.length ? (
               <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                {this.state.hours.map(hour => (
+                  <ListItem key={hour._id}>
+                    <Link to={"/hours/" + hour._id}>
                       
                         <p>
-                        Free Time :         {book.title} hrs
+                        Free Time :         {hour.free} hrs
                         </p>
                         <p>
-                        Self Actualization: {book.selfA} hrs
+                        Self Actualization: {hour.selfA} hrs
                         </p>
                         <p>
-                        Esteem:             {book.esteem} hrs
+                        Esteem:             {hour.esteem} hrs
                         </p>
-                        Love:               {book.love} hrs
+                        Love:               {hour.love} hrs
                         
                      
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                    <DeleteBtn onClick={() => this.deleteHour(hour._id)} />
                   </ListItem>
                 ))}
               </List>
@@ -132,4 +132,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Hours;

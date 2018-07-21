@@ -1,8 +1,8 @@
 import React from "react";
-import Books from "./pages/Books";
+import Hours from "./pages/Hours";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+//import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -10,11 +10,11 @@ import "./App.css";
 const App = () => (
     <Router>
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
-          <Route exact path="/" component={Books} />
-          <Route exact path="/books" component={Books} />
-          <Route exact path="/books/:id" component={Detail} />
+          <Route exact path="/" component={Hours} />
+          <Route exact path="/hours" component={Hours} />
+          <Route exact path="/hours/:id" component={Detail} />
           <Route component={NoMatch} />
         </Switch>
       </div>
