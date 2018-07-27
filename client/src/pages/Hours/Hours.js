@@ -109,12 +109,12 @@ class Hours extends Component {
                         Free Time :         {hour.free} hrs
                         </p>
                         <p>
-                        Self Actualization: {hour.selfA} hrs
+                        Self Actualization: {hour.selfA.toFixed(1)} hrs
                         </p>
                         <p>
-                        Esteem:             {hour.esteem} hrs
+                        Esteem:             {hour.esteem.toFixed(1)} hrs
                         </p>
-                        Love:               {hour.love} hrs
+                      Love:               {hour.love.toFixed(1)} hrs
                         
                      
                     </Link>
